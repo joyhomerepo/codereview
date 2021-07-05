@@ -8,12 +8,12 @@
 #include "table.h"
 #include "property.hpp"
 
-namespace techarch
+namespace tech_arch
 {
     class Table;
 
     /// 数据引擎实例类，包含数据引擎启动、停止接口
-    class DataEngineInstance
+    class DataEngine
     {
     public:
     /**
@@ -41,7 +41,7 @@ namespace techarch
      * 每张表的索引结构描述（主键：主键起始位置、主键长度；附加唯一索引：每一个子字段的起始位置以及长度；）
      * @return 错误码
      */
-        DataEngineInstance(const char *instance_name, const Property &prot);
+        DataEngine(const char *data_engine_name, const Property &prop);
 
         /**
      * @brief 初始化数据引擎，内部包括创建资源、createTable等操作
@@ -92,7 +92,7 @@ namespace techarch
      * @param label [out] 应用传入的标签，例如：可为应用的事务版本号
      * @return 错误码
      */
-        std::error_code MakeSnapshot(uint64_t label);
+        std::error_code MakeSnapshot(uint64_t snapshot_id);
 
         /**
      * @brief 触发表的数据合并，供应急工具使用

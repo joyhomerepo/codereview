@@ -7,7 +7,7 @@
 #include "property.hpp"
 
 
-namespace techarch {
+namespace tech_arch {
 
 /// 数据表类，包含数据表全部用法与接口
 class Table {
@@ -36,7 +36,7 @@ public:
      * @param label [out] 应用传入的标签，例如：可为应用的事务版本号
      * @return 错误码
      */
-    std::error_code MakeSnapshot(uint64_t label);
+    std::error_code MakeSnapshot(uint64_t snapshot_id);
 
     /**
      * @brief 触发表的数据合并，供应急工具使用
@@ -57,14 +57,14 @@ public:
      * @brief 向数据表更新一条数据
      * 
      * @param primary_key [in] 需要更新的数据的主键
-     * @param new_tuple [in] 需要插入的数据
+     * @param tuple_slice [in] 需要插入的数据
      * @param position [in] 修改数据段在记录中的起始位置
      * @param len [in] 修改数据段长度
      * @return 错误码
      */
-    std::error_code Update(const char *primary_key, const char *new_tuple, int32_t position, size_t len);
+    std::error_code Update(const char *primary_key, const char *tuple_slice, int32_t position, size_t len);
 
-    /// 记录修改函数指针类型定义
+    /// 记录修改函数指针类型定义 (无详细描述)
     typedef std::error_code (*UpdateFuncT)(char *tuple, int32_t length);
     /**
      * @brief 向数据表更新一条数据

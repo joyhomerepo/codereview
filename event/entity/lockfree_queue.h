@@ -20,7 +20,7 @@ public:
 
     /**
      *  @brief  写方使用，申请一个可写序号
-     *  @param [out]  sequence 申请到的序号
+     *  @param [out]  sequence 申请到可写入的最大序号
      *  @param [out]  ppBlock  申请到的序号对应的数据区
      *  @return  申请成功为0，失败为错误码
      */
