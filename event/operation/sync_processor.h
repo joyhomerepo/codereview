@@ -38,7 +38,7 @@ public:
         //pEA_->TryPubEvent(event);
     }
     
-    void SwitchToLeader(bool isLeader = true);
+    void SwitchToLeader(bool isLeader = true);      //review:参数有意义吗
     
 private:
     // 用于从持久化文件中读取消息向外同步

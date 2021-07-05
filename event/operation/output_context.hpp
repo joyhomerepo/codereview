@@ -4,7 +4,7 @@
 #include <system_error>
 #include "property.h"
 
-namespace tec_arch
+namespace tech_arch
 {
 //输出
 class OutputContext

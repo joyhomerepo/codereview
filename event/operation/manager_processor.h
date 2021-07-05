@@ -9,13 +9,13 @@ namespace tec_arch
 class EventAssembler;
 class TimeSource;
 
-class ManagerProcessor : public Processor
+class ManageProcessor : public Processor
 {
 public:
     /// 构建函数
-    ManagerProcessor(TimeSource* timeSource, TopicSeqMap* pTopicSeqMap);
+    ManageProcessor(TimeSource* time_source, TopicSeqMap* pTopicSeqMap);
     // 析构函数
-    ~ManagerProcessor();
+    ~ManageProcessor();
 
     //获取新消息
     //从timeSource拿时间，授时
@@ -23,7 +23,7 @@ public:
     void Task();
 
 private:
-    TimeSource* timeSource_;
+    TimeSource* time_Source_;
     TopicSeqMap* pTopicSeqMap_;
 };
 

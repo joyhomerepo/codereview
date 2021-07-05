@@ -49,19 +49,19 @@ public:
     std::error_code StartProcessor();
 
     // 停止消费方线程
-    std::error_code StopProcessor();
+    std::error_code StopProcessor();    //review:Stop之后再Start是不是可以
 
     // 注册消息队列的发布方
-    std::error_code RegPublisher(const IPublisher* pPublisher);
+    std::error_code RegisterPublisher(const IPublisher* pPublisher);
 
     // 注册消息队列的消费者
-    std::error_code RegProcessor(const Processor* pProcessor);
+    std::error_code RegisterProcessor(const Processor* pProcessor);
 
     // 注册包含依赖关系的消费者
-    std::error_code RegProcessor(std::vector<Processor*> processors, const Processor* pProcessor);
+    std::error_code RegisterProcessor(std::vector<Processor*> pre_processors, const Processor* pProcessor);
 
     /// 由IPublisher调用，发布事件
-    std::error_code TryPubEvent(EventHeaderT* pEventHeader, const void* pEvent, uint32_t eventLen);
+    std::error_code TryPubEvent(EventHeaderT* pevent_header, const void* pevent, uint32_t length); //review:Pub操作应该在IPublisher上
 
     /**
      *  @brief 查看下一个事件，由消费者调用
@@ -69,10 +69,10 @@ public:
      *  @param [out] ppEvent 获取到的消息
      *  @return 如果无可消费的新消息，则返回失败
      */
-    std::error_code GetEvent(Processor* pProcessor, char** ppEvent);
+    std::error_code GetEvent(Processor* pProcessor, char** ppEvent);    //review:什么场景会使用此接口？建议同时获得当前最大序号
 
     //释放序号为消费完成
-    std::error_code Release(int64_t sequence);
+    std::error_code Release(int64_t sequence);//review:问题同上
 private:
     Property property;
     //消息队列

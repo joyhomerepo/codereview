@@ -6,7 +6,7 @@ namespace tec_arch
 {
 //处理器实体类
 class IProcessor;
-class Processor : public Thread
+class Processor : public Thread //review:名字起得太雷同，怎么使用这个类？
 {
 public:
     /// 构造函数
@@ -14,7 +14,7 @@ public:
     /// 析构函数
     virtual ~Processor();
     /// 绑定Ea，把处理器向ea注册时绑定
-    void BondEa(CEventAssembler* pEa);
+    void BindEa(CEventAssembler* pEa); //review:为什么不是注册
 
     // 线程的主处理函数, 每个processor需要重写，实现自己的处理函数
     virtual void Task() = 0；

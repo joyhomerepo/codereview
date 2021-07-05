@@ -9,7 +9,7 @@ namespace tec_arch
 {
 
 // 时间片发布者
-class TimeSlicePublisher : public IPublisher, public ITimerCallback
+class TimeSlicePublisher : public IPublisher, public ITimerCallback     //review:独立的一件事情，建议分开做
 {
 public:
     /// 构建函数

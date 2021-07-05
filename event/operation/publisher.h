@@ -18,7 +18,7 @@ public:
     virtual ~IPublisher();
 
     /// 绑定需要操作的EA
-    void BondEa(EventAssembler* pEA);
+    void BindEa(EventAssembler* pEA); //review:同样问题，为什么不是注册
 
     /// 由派生类调用，内部调用EA的发布接口进行发布
     //publisher在发布前组装header，与真正消息数据和消息长度一并传入
